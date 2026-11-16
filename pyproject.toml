@@ -1,0 +1,29 @@
+[project]
+name = "dbms-scm"
+version = "0.1.0"
+description = "A simplified GitHub-inspired repository management system"
+readme = "README.md"
+authors = [
+    { name = "Aman Sahu", email = "amansahu3369@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "psycopg[binary]>=3.2.0",
+    "psycopg-pool>=3.2.0",
+    "httpx>=0.27.0",
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+scm = "client.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["server", "client"]
